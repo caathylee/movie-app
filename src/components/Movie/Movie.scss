@@ -1,0 +1,39 @@
+.movie-card {
+    text-align: center;
+    background-color: #DDD;
+    padding: 8px;
+    margin: 8px;
+    > div {
+        // flex-basis: 1;
+
+        // &.poster-section {
+        //     background-color: rgb(71, 71, 71);
+        //     width: 100%; // TODO: update value
+        //     height: 300px; // TODO: update value;
+        //     position: relative;
+        //     &:after {
+        //         content: 'Poster unavailable';
+        //         position: absolute;
+        //         top: 50%;
+        //         left: 50%;
+        //         transform: translateX(-50%) translateY(-50%);
+        //         -webkit-transform: translateX(-50%) translateY(-50%);
+        //         -ms-transform: translateX(-50%) translateY(-50%);
+        //         -moz-transform: translateX(-50%) translateY(-50%);
+        //         -o-transform: translateX(-50%) translateY(-50%);
+        //     }
+        // }
+    }
+    img {
+        max-width: 100%;
+        display: block;
+    }
+}
+
+.btn-add-to-playlist {
+    color: #fff;
+    background-color: #000;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}

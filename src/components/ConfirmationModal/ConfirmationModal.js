@@ -11,6 +11,7 @@ export const ConfirmationModal = (props) => {
 
     const handleClick = (buttonClicked) => {
         if (buttonClicked === Confirmations.YES) {
+            // TODO: Check if this movie already exists in the playlist, Ask if user is sure they want to add duplicate to list anyways.
             // add current movie to playlist
             updatePlaylist(movieInfo);
         } 

@@ -9,6 +9,12 @@ export const Playlist = (props) => {
         setShowPlaylist(!showPlaylist);
     }
 
+    /* TODO: Additional Functionalities
+    - Ability to delete from playlist
+    - Multiple playlists
+    - Rename playlists
+    */
+
     return(<div className="playlist-container">
         <button className="btn-view-playlist" onClick={(e) => { handleClick(e) }} type="button">{ showPlaylist ? 'Hide Playlist' : 'View Playlist'}</button>
         {showPlaylist && 

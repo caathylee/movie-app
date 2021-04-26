@@ -4,11 +4,12 @@ import { uniqBy } from 'lodash';
 
 export const Searchbar = (props) => {
 
-    const { updateSearchData, updateSearchValue, searchValue } = props;
+    const { updateSearchData, updateSearchValue, searchValue, updateShowResultsMessage } = props;
     const [page, setPage] = useState(1);
 
+
     const API_KEY = "8ca67d21";
-    const httpProtocol = process.env.NODE_ENV === "development" ? "http" : "https";
+    const httpProtocol = process.env.NODE_ENV === "development" ? "http" : "https"; // Fixes CORS issue
     const SEARCH_API = `${httpProtocol}://www.omdbapi.com/?s=${searchValue}&apikey=${API_KEY}`;
     const MIN_SEARCH_LENGTH = 3;
     const [showError, setShowError] = useState(false);
@@ -16,6 +17,7 @@ export const Searchbar = (props) => {
     const handleSearch = (e) => {
         updateSearchData([]);
         updateSearchValue(e.target.value);
+        updateShowResultsMessage(false);
     };
 
     const handleClick = (e) => {
@@ -32,7 +34,12 @@ export const Searchbar = (props) => {
                     const uniqResults = uniqBy(result.Search, 'imdbID');
                     result.Search = uniqResults;
                     updateSearchData(result);
-                    setPage(page + 1);
+                    updateShowResultsMessage(false);
+                    if (!result.Search.length) {
+                        updateShowResultsMessage(true);
+                    }
+                    // TODO: Implement pagination with Load More button
+                    setPage(page + 1); 
                 });
                 setShowError(false);
         } else {

@@ -12,6 +12,11 @@ const App = () => {
   const [searchValue, setSearchValue] = useState('');
   const [playlistItems, setPlaylistItems] = useState([]);
   const [currentSelectedMovie, setCurrentSelectedMovie] = useState({});
+  const [showResultsMessage, setShowResultsMessage] = useState(false);
+
+  const updateShowResultsMessage = (showMessage) => {
+    setShowResultsMessage(showMessage);
+  }
 
   const updateSearchData = (data) => {
     setSearchData(data);
@@ -40,9 +45,9 @@ const App = () => {
           <img className="logo" src={logo} alt="movie-app-logo"/>
         <h1>Finding Movies</h1>
         </div>
-        <Searchbar searchData={searchData} updateSearchData={updateSearchData} updateSearchValue={updateSearchValue} searchValue={searchValue}/>
+        <Searchbar searchData={searchData} updateSearchData={updateSearchData} updateSearchValue={updateSearchValue} searchValue={searchValue} updateShowResultsMessage={updateShowResultsMessage}/>
         <Playlist playlist={playlistItems} />
-        <SearchResults searchData={searchData} updateShowModal={updateShowModal} searchValue={searchValue} updateCurrentSelectedMovie={updateCurrentSelectedMovie}/>
+        <SearchResults searchData={searchData} updateShowModal={updateShowModal} searchValue={searchValue} updateCurrentSelectedMovie={updateCurrentSelectedMovie} showResultsMessage={showResultsMessage}/>
     </div>
       <ConfirmationModal showModal={showModal} updateShowModal={updateShowModal} movieInfo={currentSelectedMovie} updatePlaylist={updatePlaylist}/>
     </div>

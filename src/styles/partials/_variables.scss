@@ -1,0 +1,33 @@
+// typography
+$primaryHeaderFont: 'Lobster', cursive;
+$primaryBodyFont: 'Roboto', sans-serif;
+
+// Font weights
+$light: 300;
+$regular: 400;
+
+// Branding colors
+$blue: #2b70a8;
+$red: #ce3536;
+$darkRed: #771f1f;
+$darkRedOverlay: #640f0f;
+$yellow: #fde575;
+$gold: #fcb442;
+$cream: #fae8d8;
+$lightGrey: #DDD;
+$mediumGrey: #3636362b;
+$darkGrey: #121212;
+$opacOverlay: rgba(0, 0, 0, 0.85);
+
+
+// Elements
+$placeholderColor: #c1c0c0;
+$favoriteColor: rgb(43, 89, 187);
+$posterBg: rgb(71, 71, 71);
+
+
+// Responsive device widths
+$mobile: 767px;
+$min-tablet: 768px;
+$max-tablet: 1023px;
+$desktop: 1024px;

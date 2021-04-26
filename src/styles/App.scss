@@ -1,34 +1,93 @@
+@import './partials/variables';
+
 .App {
-  text-align: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
 }
+.modal-open {
+  overflow: hidden;
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $opacOverlay;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+    background-color: $darkGrey;
+    font-family: $primaryBodyFont;
+    color: $darkGrey;
+}
+.logo-container {
+  width: 375px;
+  max-width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: auto;
+  @media (min-width: $desktop) {
+    display: flex;
+    align-items: flex-end;
+    align-content: space-between;
+    h1 {
+      width: calc(100% - 150px);
+    }
+  }
+  .logo {
+    width: 150px;
+  }
+  h1 {
+    font-family: $primaryHeaderFont;
+    color: $blue;
+    margin-top: 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.loading-indicator {
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  margin: auto;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  color: #fff;
+  background-color: $blue;
+  border-radius: 5px;
+  padding: 8px 16px;
+  min-width: 100px;
+  border: none;
+  transition: all 0.3s ease-in-out; 
+  -webkit-transition: all 0.3s ease-in-out;
+  outline: none;
+  &:hover {
+      background-color: $darkRed;
+      cursor: pointer;
+  }
+  &.btn-load-more {
+      margin: 30px 0 100px 0;
+  }
 }
 
-@keyframes App-logo-spin {
+.btn-red {
+  background-color: $darkRed;
+  &:hover {
+    background-color: $darkRedOverlay;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loading-indicator {
+    animation: loading-indicator-spin infinite 20s linear;
+  }
+}
+
+@keyframes loading-indicator-spin {
   from {
     transform: rotate(0deg);
   }

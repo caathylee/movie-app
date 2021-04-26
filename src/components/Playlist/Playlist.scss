@@ -1,0 +1,21 @@
+@import '../../styles/partials/variables';
+@import '../../styles/App.scss';
+
+.playlist {
+    border: 1px solid $lightGrey;
+    border-radius: 5px;
+    max-width: 90%;
+    width: 500px;
+    margin: auto;
+    margin-top: 30px;
+    ol {
+        display: inline-block;
+        text-align: left;
+    }
+}
+
+.btn-view-playlist {
+    @extend .btn-red;
+    width: 150px;
+    margin-top: 16px;
+}

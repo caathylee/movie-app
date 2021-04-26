@@ -1,21 +1,29 @@
+@import '../../styles/partials/variables';
+@import '../../styles/App.scss';
+
 .confirmation-modal {
     box-shadow: #000;
     background-color: #fff;
+    color: #000;
     border: 1px solid #000;
     width : 500px;
     max-width: 100%;
     padding: 16px 8px 0 8px;
     margin: auto;
-    position: absolute;
-    top: 10px;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
+    transform: translateX(-50%)translateY(-50%);
+    -webkit-transform: translateX(-50%)translateY(-50%);
+    -ms-transform: translateX(-50%)translateY(-50%);
+    -moz-transform: translateX(-50%)translateY(-50%);
+    -o-transform: translateX(-50%)translateY(-50%);
+    button {
+        @extend .btn-red;
+        margin: 0 4px;
+    }
     footer {
-        background-color: rgb(43, 89, 187);
+        background-color: $favoriteColor;
         color: #fff;
         padding: 2px;
         margin: 60px -8px 0 -8px;

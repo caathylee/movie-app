@@ -1,39 +1,60 @@
+@import '../../styles/partials/variables';
+@import '../../styles/App.scss';
+
 .movie-card {
     text-align: center;
-    background-color: #DDD;
-    padding: 8px;
+    background-color: $mediumGrey;
+    border: 1px solid $lightGrey;
+    padding: 16px;
     margin: 8px;
+    width: 30%;
+    border-radius: 5px;
+    float: left;
+    max-width: 100%;
     > div {
-        // flex-basis: 1;
-
-        // &.poster-section {
-        //     background-color: rgb(71, 71, 71);
-        //     width: 100%; // TODO: update value
-        //     height: 300px; // TODO: update value;
-        //     position: relative;
-        //     &:after {
-        //         content: 'Poster unavailable';
-        //         position: absolute;
-        //         top: 50%;
-        //         left: 50%;
-        //         transform: translateX(-50%) translateY(-50%);
-        //         -webkit-transform: translateX(-50%) translateY(-50%);
-        //         -ms-transform: translateX(-50%) translateY(-50%);
-        //         -moz-transform: translateX(-50%) translateY(-50%);
-        //         -o-transform: translateX(-50%) translateY(-50%);
-        //     }
-        // }
-    }
-    img {
-        max-width: 100%;
-        display: block;
+        &.poster-section {
+            background-color: $posterBg;
+            width: 300px;
+            max-width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            img {
+                height: 100%;
+                width: auto;
+                display: block;
+                overflow: hidden;
+                top: 50%;
+                left: 50%;
+                position: absolute;
+                transform: translateX(-50%) translateY(-50%);
+                    -webkit-transform: translateX(-50%) translateY(-50%);
+                    -ms-transform: translateX(-50%) translateY(-50%);
+                    -moz-transform: translateX(-50%) translateY(-50%);
+                    -o-transform: translateX(-50%) translateY(-50%);
+            }
+            &.has-poster {
+                background-color: $mediumGrey;
+            }
+            &.no-poster {
+                border: 1px solid $lightGrey;
+                &:after {
+                    content: 'Poster unavailable';
+                    color: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    -webkit-transform: translateX(-50%) translateY(-50%);
+                    -ms-transform: translateX(-50%) translateY(-50%);
+                    -moz-transform: translateX(-50%) translateY(-50%);
+                    -o-transform: translateX(-50%) translateY(-50%);
+                }
+            }
+        }
     }
 }
 
 .btn-add-to-playlist {
-    color: #fff;
-    background-color: #000;
-    position: absolute;
-    top: 8px;
-    right: 8px;
+    @extend .btn-red;
 }

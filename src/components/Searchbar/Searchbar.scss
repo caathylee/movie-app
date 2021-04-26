@@ -1,0 +1,43 @@
+@import '../../styles/partials/variables';
+
+.searchbar {
+    input {
+        border: 2px solid $lightGrey;
+        max-width: 85%;
+        width: 500px;
+        padding: 16px;
+        border-radius: 25px;
+        background-color: $darkGrey;
+        color: #fff;
+        margin-bottom: 30px;
+        font-size: 16px;
+        &:focus {
+            border-color: $blue;
+            outline: none;
+        }
+        &::-webkit-input-placeholder {
+            color: $placeholderColor;
+        }
+        &::-moz-placeholder {
+            color: $placeholderColor;
+        }
+        &:-ms-input-placeholder {
+            color: $placeholderColor;
+        }
+        &:-moz-placeholder {
+            color: $placeholderColor;
+        }
+        &:-o-placeholder {
+            color: $placeholderColor;
+        }
+    }
+    button {
+        display: block;
+        margin: auto;
+        width: 150px;
+    }
+    .error-message {
+        color: $red;
+        margin-top: 0;
+    }
+}

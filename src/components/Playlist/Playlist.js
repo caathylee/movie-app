@@ -14,11 +14,11 @@ export const Playlist = (props) => {
         {showPlaylist && 
         (<div className="playlist">
             <h2>Playlist</h2>
-
+            {playlist?.length === 0 && <p>There are no items in your playlist.</p>}
             <ol>
                 {
                     playlist?.map(item => {
-                        return <li>{item.Title}</li>
+                        return <li key={item.imdbID}>{item.Title}</li>
                     })
                 }
             </ol>
@@ -28,4 +28,4 @@ export const Playlist = (props) => {
     </div>)
 };
 
-export default { Playlist };
+export default Playlist;

@@ -7,7 +7,7 @@ const PosterUrl = {
 
 export const Movie = (props) => {
     const { data, updateShowModal, updateCurrentSelectedMovie} = props;
-    const { Title, Year, Poster, imdbID } = data;
+    const { Title, Year, Poster } = data;
 
     const HAS_POSTER = Poster !== PosterUrl.MISSING;
 
@@ -29,4 +29,4 @@ export const Movie = (props) => {
     </div>);
 };
 
-export default { Movie };
+export default Movie;

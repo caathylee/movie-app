@@ -30,4 +30,4 @@ export const ConfirmationModal = (props) => {
     null;
 };
 
-export default { ConfirmationModal};
+export default ConfirmationModal;

@@ -20,4 +20,4 @@ export const SearchResults = (props) => {
     </div>);
 };
 
-export default { SearchResults };
+export default SearchResults;

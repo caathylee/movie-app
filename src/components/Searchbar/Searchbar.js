@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import './Searchbar.scss';
+import { uniqBy } from 'lodash';
 
 export const Searchbar = (props) => {
 
-    const { searchData, updateSearchData, updateSearchValue, searchValue } = props;
+    const { updateSearchData, updateSearchValue, searchValue } = props;
     const [page, setPage] = useState(1);
 
     const API_KEY = "8ca67d21";
-    const SEARCH_API = `http://www.omdbapi.com/?t=${searchValue}&apikey=${API_KEY}`;
+    const httpProtocol = process.env.NODE_ENV === "development" ? "http" : "https";
+    const SEARCH_API = `${httpProtocol}://www.omdbapi.com/?s=${searchValue}&apikey=${API_KEY}`;
     const MIN_SEARCH_LENGTH = 3;
     const [showError, setShowError] = useState(false);
 
@@ -16,16 +18,19 @@ export const Searchbar = (props) => {
         updateSearchValue(e.target.value);
     };
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault();
         // Execute search
         if (searchValue.length >= MIN_SEARCH_LENGTH) {
-            fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=${API_KEY}&page=1`)
-            // fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=${API_KEY}&page=${page}`)
+            fetch(`${SEARCH_API}&page=1`)
                 .catch((error) => {
-               console.error(error);
+                    console.error(error);
                 })
                 .then((res) => res.json())
                 .then(result => {
+                    //TODO: uniqBy fixes issue with children with duplicate keys. Better solution is to extract the result.Search into its own variable. This will help with pagination feature when implemented.
+                    const uniqResults = uniqBy(result.Search, 'imdbID');
+                    result.Search = uniqResults;
                     updateSearchData(result);
                     setPage(page + 1);
                 });
@@ -36,12 +41,12 @@ export const Searchbar = (props) => {
     };
 
     return (
-    <div className="searchbar">
+    <form className="searchbar" onSubmit={handleClick}>
         <input type="search" placeholder="Search for movies" onChange={(e) => {handleSearch(e)}} value={searchValue}/>
         {showError && <p className="error-message">Movie title need a minium length of {MIN_SEARCH_LENGTH} characters.</p>}
-        <button type="submit" onClick={handleClick}>Search</button>
-    </div>);
+        <button type="submit">Search</button>
+    </form>);
 
 };
 
-export default { Searchbar};
+export default Searchbar;

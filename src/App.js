@@ -33,14 +33,11 @@ const App = () => {
     setCurrentSelectedMovie(movie);
   };
 
-  console.log("playlistItems");
-  console.log(playlistItems);
-
   return (
     <div className="App">
       <div className={`${showModal ? 'modal-open' : 'modal-closed'}`}>
         <div className="logo-container">
-          <img className="logo" src={logo} />
+          <img className="logo" src={logo} alt="movie-app-logo"/>
         <h1>Finding Movies</h1>
         </div>
         <Searchbar searchData={searchData} updateSearchData={updateSearchData} updateSearchValue={updateSearchValue} searchValue={searchValue}/>
